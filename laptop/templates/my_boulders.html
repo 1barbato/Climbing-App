@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Boulders</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4caf50;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+        }
+        main {
+            padding: 2rem;
+        }
+        .boulder-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        .boulder-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .boulder-card img,
+        .boulder-card video {
+            max-width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+        .boulder-card-content {
+            padding: 1rem;
+        }
+        .boulder-card h3 {
+            margin: 0 0 0.5rem;
+            color: #4caf50;
+        }
+        .boulder-card p {
+            margin: 0.5rem 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Boulders</h1>
+        <p>Your logged climbing achievements</p>
+    </header>
+    <main>
+        <h2>Boulders You've Submitted</h2>
+        <div class="boulder-list">
+            <!-- Example Boulder Card -->
+            <div class="boulder-card">
+                <img src="example-boulder.jpg" alt="Boulder Image">
+                <div class="boulder-card-content">
+                    <h3>Example Boulder</h3>
+                    <p><strong>Grade:</strong> V5</p>
+                </div>
+            </div>
+            <!-- Repeat cards dynamically -->
+        </div>
+    </main>
+</body>
+</html>
