@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Submitted Boulders</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 2rem;
+        }
+        header {
+            background-color: #4caf50;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+        }
+        .boulder-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+        .boulder {
+            border: 1px solid #333;
+            border-radius: 5px;
+            padding: 1rem;
+            max-width: 300px;
+            text-align: center;
+        }
+        img,
+        video {
+            max-width: 100%;
+            max-height: 200px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>All Submitted Boulders</h1>
+    </header>
+    <main>
+        <div class="boulder-container">
+            {% for boulder in boulders %}
+                <div class="boulder">
+                    <h4>{{ boulder.name }}</h4>
+                    <p>Grade: {{ boulder.grade }}</p>
+                    {% if boulder.media_url %}
+                        {% if boulder.media_url.endswith(".MP4") or boulder.media_url.endswith(".MOV") %}
+                            <video controls width="400">
+                                <source src="{{ boulder.media_url }}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        {% else %}
+                            <img src="{{ boulder.media_url }}" alt="Boulder Media">
+                        {% endif %}
+                    {% else %}
+                        <p>No media provided</p>
+                    {% endif %}
+                </div>
+            {% else %}
+                <p>No boulders have been submitted yet!</p>
+            {% endfor %}
+        </div>
+        <br>
+        <button onclick="window.location.href='/index'">Back</button>
+    </main>
+</body>
+</html>
